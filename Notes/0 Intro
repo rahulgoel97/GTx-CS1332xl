@@ -1,0 +1,213 @@
+# -------------- #
+Module 0 -  Intro and Review - Java
+# ---------------#
+
+
+1. Equality / Reference
+2. Primitives
+3. String literals
+4. Null checking
+5. Wrapper Objects
+6. Typical use cases
+7. Pass by value and pass by reference
+8. Generics
+9. Generics Syntax
+
+#############################
+
+VALUE REFERENCE EQUALITY WITH PRIMITIVES AND STRINGS
+
+###############################
+
+== 1. EQUALITY / REFERENCE == 
+
+- reference equality - same object in memory. ie: using ==
+
+- value equality - could be different places in memory, but the value is the same. ie: using .equals()
+
+== 2. PRIMITIVES ==
+
+- do not extend Object class like most types for optimizing compute
+- no diff between reference and equality!
+
+int one = 1;
+int one2 = 1;
+
+They both will be same using '=='
+
+== 3. STRING LITERALS ==
+
+ - Instead of creating new objects, Strinng creates literals / constants stored in the "String pool" - optimize speed
+
+ - No diff in value / ref equality!
+
+ - HOWEVER, if the new keyword is used a new String object is created - causing it to behave with reference / value equality. 
+ - Then need to use .equals() to get correct equality evaluation
+
+ =>RG note: Wicked - java is doing all this stuff for speed and memory
+
+
+#############################
+
+VALUE REFERENCE EQUALITY WITH OBJECTS
+
+###############################
+
+== 4. NULL CHECKING ==
+
+- Use "==" otherwise NullPointerException aka NPE (by cool kids)
+
+- If we use .equals() it's incorrect, use '==' to check for null
+
+- .equals() uses String class's function and will throw NPE is we try to do
+
+> String nullObject = null;
+> nullObject.equals(null);  // !NullPointerException
+> nullObject == null; // True - correct way...
+
+== 5. WRAPPER OBJECTS == 
+
+- Each primitive (eg: int, double, sring) has a wrapper Object class (eg: Integer, Double, String - all classe)
+
+> Integer object = new Integer(1);
+> Integer primitive = 1;
+
+> primitive.equals(object); // True
+> primitive == object; // False
+
+- Takeaway: equals() can compare underlying value in memory, but == can be thrown off by objects. 
+
+== 6. TYPICAL USE CASE ==
+
+- Exampe of an electronic health record, with multiple objects representing patients
+
+- If I want to retrieve all records with "Rahul Goel", I will use "==". ie: find all records where .name=="Rahul Goel"
+
+- However, if I want to retrieve a unique patient, I will use .equals() referencing an object. (unless there's a unique ID)
+
+- Takeaway: == is many, .equals() is one of a kind and unique.
+
+== 7. PASS BY VALUE & REFERENCE ==
+
+- Pass by value - copy value to a var in helper fun
+- Pass by ref - pass the whole damn thing
+
+- For primitives, just use return in the end..
+
+> public static int helper(int x) {
+	...
+	return x;
+}
+
+- For objects, use Container such as..
+
+> public static void main helper(Container x) {...}
+
+== 8. GENERICS == 
+
+- A placeholder for any type (int, float, etc)
+
+For:
+
+public class Container {
+    private Object object;
+
+    public void set(Object object) {
+        this.object = object;
+    }
+
+    public Object get() {
+        return object;
+    }
+}
+
+- Can pass > c1.set("Hello") and then > String s = (String)c1.get(); 
+
+- Can pass > c2.set("hello"); and then > Integer i = (Integer)c2.get() - but this ain't an integer bro, so we get ClassCastException which will occur at runtime!
+
+- Generics using angle brackets can fix this...
+
+For: 
+
+// Note use of <>
+
+public class Container<T> {
+    private T t;
+
+    public void set(T t) {
+        this.t = t;
+    }
+
+    public T get() {
+        return t;
+    }
+}
+
+Use...
+
+> Container<String> c1 = new Container<String>();
+> c1.set("hello");
+> string s = c1.get()
+
+If we do...
+> Integer i = (Integer)c2.get() 
+We will see an error at compile time - preferred to runtime!!!
+
+== 9. GENERICS SYNTAX ==
+
+> class ArrayList<T> {...}
+
+
+// T aka parameter, is capitalized
+
+
+// Declaration is...
+
+> ArrayList<Integer> listOne = new ArrayList<Integer>();
+
+// Also..
+> ArrayList<Integer> list = new ArrayList<>(); 
+
+
+== 10. Generic Arrays ==
+- Arrays that support generics
+- Arrays store / check type at runtime and not compile time
+- But generics check at compile time
+- This causes some issues.
+
+
+- Eg: This is how an array is made in Java
+
+> String[] cars;
+> int[] myNum = {...};
+
+- So imagine an array of type T named backingArray
+
+> T[] backingArray = new T[10]; // error
+
+> T[] backingArray = (T[]) new Object[10]; // this works
+
+- Create an array of Objects, which is then cast into type T
+
+== 11. Other Cases ==
+
+For...
+
+> class HashMap<K, V> {...}
+
+We instantiate by..
+
+> HashMap<String, Integer> A = new HashMap<>(); // Dont forget angle brackets...
+
+- Can nest different params...
+
+> ArrayList<type> nodeList = new ArrayList<>(); // if type is type
+
+
+> ArrayList<BSTNode<T>> nodeList = new ArrayList<>(); // if type is a BSTNode<T>
+
+
+
+
+
+
