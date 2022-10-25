@@ -99,7 +99,7 @@ VALUE REFERENCE EQUALITY WITH OBJECTS
 	return x;
 }
 
-- For objects, use Container such as..
+- For objects, use Container such as.. OBJECTS are passed by reference.
 
 > public static void main helper(Container x) {...}
 
@@ -206,7 +206,34 @@ We instantiate by..
 
 > ArrayList<BSTNode<T>> nodeList = new ArrayList<>(); // if type is a BSTNode<T>
 
+== 12. Exercises / Participation ==
 
+a. Getter & Setter methods - Getter returns value. Setter takes param and gives it to variable.
+
+b Constructor and Variables - Hard to say if the variable names will conflict.... Voting for not compile due to ambiguous 'width'
+
+c. Constructor chaining - Not sure if I need to use this(s,s). Can basically set length and width private doubles to s, vote for that. Google says - this() can be used in same class, super() from base class... Changed to this(s,s) -> classic example of "constructor chaining" though other one may achieve same result.
+
+d. Generics - Needs Object casted to T
+
+e. Pass by value / reference - They certainly are "variables", which is omitted in third choice. Needs container for reference passing - go for 2  - this is pass by value.
+
+f. Value / Reference Equality - if new is used, creates a new object in String Pool. so dog1 and dog2 same, dog3 and dog4 are distinct. .equals() will compare via value equality, but == will compare reference equality. 
+
+RESULTS
+a INCORRECT - count had to be private. Since var is not used outside...
+b INCORRECT - length 50 but width 0 - since width is doubly used. Look into why this is zero.
+c CORRECT
+d CORRECT 
+e INCORRECT - They are variables that contain references to the ArrayList object. So objects have references passing around..
+f CORRECT
+
+Score - 50%. 
+
+Reflection:
+1. If variable doesn't need to be passed outside, private var.
+2. If there is variable name conflict, the program is compiled and runs - but the variable stays 0.
+3. Objects are passed as references. 
 
 
 
