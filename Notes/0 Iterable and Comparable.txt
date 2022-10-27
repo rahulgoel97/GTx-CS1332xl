@@ -1,0 +1,196 @@
+########################## 
+0 Iterable and Iterator 
+Java
+##########################
+
+1. Iterable and Iterator
+2. Comparable and Comparator
+3. Comprehension
+4. Summary and code examples
+
+========== 1. ITERARABLE AND ITERATOR =========
+
+Exec summary: Iterable = layer of abstraction using "implements Iterable" (java.lang). Iter-ABLE to use for-each loop. Iterator = layer of abstraction using "implements Iterator" - allowing next() and hasNext() (java.util). 
+
+
+- Used to iterate thru info in a data structure
+- Can use for-each loop 
+
+
+
+---- ITERATOR -----
+
+- Iterator interface: class must override next and hasNext methods. Can also use remove(). 
+
+> public abstract T next(); // Iterator interface
+> public void remove();  // Iterator interface
+
+- Typically cursor keeps track of current data - iterator in java.util
+
+- hasNext() returns true if cursor not null
+
+---- Simple examples of using a class -----
+
+import java.util.Iterator; // import
+public class BookList<Book> implements Iterator<Book>{
+	//....
+
+	public void next() {...}
+	public boolean hasNext() {...} //note this is a bool
+}
+
+while(bookList.hasNext()){
+	System.out.println(bookList.next());
+}
+
+Notes - 1) Import with capital I, 2) implements Iterator<type>..., 3) use while hasNext() 4) Function override means basically combining the functionality of the function or extending it.
+
+------ Properly overriding the method -------
+
+import java.util.Iterator;
+public class BookList<Book> implements Iterator<Book>{
+	//...
+	public Iterator<Book> iterator() {...}
+}
+
+// Alternative usage:
+for (Book book:bookList){ // for (Type a:b){..} this is the "for-each loop", kinda special!
+	system.out.println(book); 
+}
+}
+}
+
+----- Lecture Summary -------
+Iterable: 1) allows for direct control of obj iteration for custom behavior and 2) depends on data structure and iterator
+
+Iterator: 1) Abstracts control away from user for convenience and 2) Has no dependencies beside data structure.
+
+- Iterable dependent on Iterator, but Iterator is independend of Iterable ie: Iterator, the imported class is more fundamental. 
+
+------ Lecture notes - Second Look --------
+
+
+- Iterable documentation shows enabling of for each loop, and iterator used for next() and hasNext()...
+
+// Examples from "Iterable: A Second Look"
+
+List <String> structures = new ArrayList<>();
+
+structures.add("BST");
+structures.add("HashMap");
+structures.app("Graph");
+
+// simple for-each loop
+
+for (String structure:structures){ // note the first variable can be named anything.
+	system.out.println(structure) //sick!!!
+}
+
+// As opposed to annoying/ugly version:
+
+for (int i=0; i<structures.size(); i++) { //C++ is like this
+		String structure = structures.size(i); // Inefficient - req Java to internally iterate thru portion of structures
+		system.out.println(structure)
+
+	}
+
+
+========== 2. COMPARABLE AND COMPARATOR =========
+
+-------- Lecture Summary ---------
+
+- Compare objects
+- in java.lang - no import needed.
+- Unlike iterator and iterable, comparator and comparable are independent 
+
+> public int compareTo(Type y); // example - takes second obj
+
+-- Another example ---
+
+public class Student {
+	String name;
+	int age;
+	String major;
+
+	// Can define NameComparator, AgeComparator, MajorComparator
+}
+
+-- Another Example --
+
+
+
+public class HDTV implements Comparable<HDTV>{
+	private int size;
+	private String brand;
+
+	public int getSize() { return size; } // getter method
+	public String getBrand() { return brand; } // getter method
+
+	// Interesting that we dont need this in python, can just
+	// pass an object automatically
+	// Looks like in Java you need Comparable to pass objs.
+	public int compareTo(HDTV tv) { // takes HDTV object
+
+		// Here's the logic
+		if (size < tv.size) {reutrn -1;}
+		else if (size > tv.size) { return 1;}
+		else {return 0; }
+
+		// Here's another way of getting this done
+		return size - tv.size;
+	}
+}
+
+---- Comparator ----
+
+ - This one is in util 
+ - Want to compare objects but "cannot make it comparable" - outside of class example.
+
+ class SizeComparator implements Comparator<HDTV>{
+ public int compare(HDTV tv1, HDTV tv2){
+ 			return tv.getSize() - tv2.getSize();
+ 		}
+ 	}
+
+
+--- GeeksForGeeks notes - comparable vs comparator ---
+- ComparaTOR is outside of class, comparaBLE is inside 
+--> Only one chance to use compareTo() method
+- Comparator allows more attributes to be compared
+
+---- SUMMARY ----
+
+
+ITERATOR - next, hasNext() - one element at a time.
+ITERABLE - for each loop
+COMPARATOR - outisde class
+COMPARABLE - compareTo() - natural ordering
+
+=== 3. COMPREHENSION ===
+
+1.  Iterator interface - override next() and hasNext()
+
+2. E next() - returns next element; void remove() - remove from collection; hasNext() - boolen True if there are more.
+
+3. True - Comparable overrides compareTo() and Comparator allows compare()
+
+4. Natural otdering means compareTo() overriden by Comparable, and the diff should be new person - original person (Note after sol: Opposite - if person 1 is larger say 1. Seems extremely arbitrary - "Since person1's age is less than person2's age, we expect a negative number to be returned when person1.compareTo(person2) is called.". Yes, confirmed this is arbitrary. )
+
+5. Sorting by length of name -> Adrianna, Andrew, Miguel, then it's a wash - but looks like Mary is seen as longer than Ivan for some reason?
+
+Score: 60%
+
+1, 2, 3 - Correct
+
+4 - Looks like they want to sort by age..
+Solution is age - otherPerson.getAge(); and return -1 if age is lesser than the other person's age - return 1 if more than the other person's age. This implies that "1" creates ascending order. ie: if its bigger -> 1 -> so place in-front...
+
+5 - Again, arbitrarily decided that ascending is natural order. Person2 is first since it is compared first and returns 0.
+
+=== 4.  SUMMARY  ===
+
+1. These are used for sorting, but are extremely janky.
+2. Natural order is arbitrary - default to small to large. 
+3. Their names are impossible to remember since it doesn't follow a principle. 
+
+

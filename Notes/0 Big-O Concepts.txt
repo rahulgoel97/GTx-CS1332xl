@@ -1,0 +1,15 @@
+########################## 
+0 Big-O Concepts
+Java
+##########################
+
+1. Lecture Notes
+
+==== 1. Lecture Notes ====
+
+First Intro Lecture
+
+- Analyze efficiency of algorithms and data structures
+- Time complexity as function of amount of input
+
+Convetions and examples lecture
