@@ -1,0 +1,89 @@
+########################## 
+1 ArrayLists & Recursion
+Java
+##########################
+
+1. Intro notes
+2. Arrays
+3. ArrayLists
+4. ArrayLists - Video
+5. Amortized Analysis
+6. Exploratory Lab
+
+=== 1. Intro Notes ===
+
+- Data structures - low level mechanisms for storing data
+- This module: ListADT, which is implemented by ArrayList
+
+=== 2. Arrays ===
+
+- Definition - allocations of *congiuous* blocks of memory, flexible in the data types stored and accessing the index is O(1)
+
+- Can create with 1) values in or 2) some capacity
+
+
+- Not primitive like ints, floats, string etc
+- Provide O(1) access to data at an index
+
+!! Interesting !!
+- Conditions for O(1): a) Memory has to be contiguous - adjacent memory locations, b) Need to know memory index for first one ie: index 0, c) Data type to be defined before hand
+
+- Conditions for O(n)/ search - when you don't know index.
+
+- In sum access is O(1) and search is O(n).
+
+- Statically allocated memory ie: it is bounded. Therefore, sometimes have to be resized - O(n) since n elements have to be copied to the new array. Inefficient!
+
+To access index i in an array: memory address = start address + data_size*i - this is "pointer arithmetic". Since this is 3 operations, it is O(3 steps) => O(1)
+
+=== 3. ArrayLists ===
+
+- First example of ADT / Abstract Data Type.
+
+- ADT - model description of a data type defined by behaviors and operations. Sounds more abstract form of a underlying type.
+
+- List ADT: The List ADT is defined as a sequence of data values that are accessible via indexing
+
+ Operations for List ADT:
+
+ 1) addAtIndex(int index, T data)
+ 2) removeAtIndex(int index)
+ 3) get (int index)
+ 4) isEmpty()
+ 5) clear()
+ 6) size()
+
+ Note: notice CamelCase usage in Java. NEAT! #underscoresSuck
+
+
+=== 4. ArrayLists - Video ===
+
+- ArrayList is an ADT - List backed by an array
+- java.utils
+
+> ArrayList<String> list = new ArrayList<>(); // default size 10
+
+- resized by java - dynamic memory solves the problem. Tho, O(n) time.
+
+- Adding to back of array at capacity is worst case - so ALWAYS O(n).
+
+- Remove from back O(1), but anywhere else O(n) due to shifting.
+
+
+=== 5. Amortized Analysis ===
+
+- Amortize compute differences (eg: O(n) in a case, and O(1) in a different case) over different changes / scanarios. Not "worst case" as we have discussed thus far.
+
+=> (total cost of all ops) / # of ops = 2n/n. 
+
+For resize:
+
+=> resize cost + normal ops cost / n
+=> 2n+2n/n = 4 = O(1) (assuming 2 units of time for every n)
+
+- Hard removal: data removed is completely removed, set to null, never seen in arraylist.
+
+- Soft removal: Leave the data in the structure. Expected to do hard removals in this course.
+
+
+=== 6. Exploratory Lab ===
