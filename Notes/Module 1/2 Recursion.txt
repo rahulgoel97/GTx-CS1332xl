@@ -1,0 +1,70 @@
+########################## 
+1 ArrayLists & Recursion
+Java
+##########################
+
+1. Recursion video notes
+2. Exploratory Lab
+3. Comprehension
+
+== Recursion ==
+
+== 1. Recursion video notes Video notes ==
+
+- Examples of fibonacci and factorials
+- Recursion = repeatedly calls itself with 
+a) Base case for terminating condition to ensure it stops eventually - at least one. Otherwise - stack overflow error
+
+b) Call to itself
+
+c) Each call moves towards the base case
+
+- Easiest to write base cases first
+- Then rest of method - sep. into clean cases
+- Example: Greatest common divisor. Solved easily with recursion:
+
+I) Euclid's subtract version, II) Modular and III) Binary. 
+
+- Numeric example: gcd(1482, 819) -> 1482 % 819 = 663 -> 819 % 663 and so on till zero.
+
+> public int gcd(int x, int y){
+		if( y==0 ){ return x;}	// Base Case
+		else {
+				// Recursive call
+				int remainder = x % y;
+				return gcd(y, remainder);
+		}
+}
+
+
+== 2. Exploratory Lab ==
+
+- Structural recursion: Based on underlying structure or object other than numbers
+
+- Modeling Recursion... Embrace the recursive process.
+
+-  Patterned Rectangular Tilings: 
+- Tiling a 2 row, n column grid with 4 distinct pieces. 
+- Find recursive formula to compute number of tilings so that no two black square pieces on top of each other. Cimpute in O(n) time and O(1) space.
+
+- Starting thoughts: Need a recursive formula, base case/stopping conditions. What about bounds of "n"?
+
+- Case n=1: 2 rows and 1 column: Can do 2 blue, one blue and one black, and then stop / break loop when two blacks together. Therefore, 2 ways.
+
+- Case n=2: 2 rows and 2 columns. Can use all the squares. One is to use white+blue, white+black, then Red+black, Red+blue, Then 4 blues, Then 2 blues + 2 blacks - in 2 ways, then break at two blacks together. Important to note that after a certain time, it goes into n=1 case. 
+
+- Recursion: solve until n-1, then use than for recursion. Base cases = 2 blacks on top. 
+
+- Solution: Let a-sub-i for i = [0,n] represent number of ways to tile 2xi board.
+
+Ok wow... this is nuts.
+
+a0 = 1
+a1 = 3 => 2 blues, blue-top/black-bottom, black-top/blue-bottom
+
+Recursive cases: If there is a 2xn board, need to focus on how last 2 columns filled since next biggest subproblem is 2 (n-2) ie: a0 and a1 already known.
+
+
+
+
+== 3. Comprehension == 
