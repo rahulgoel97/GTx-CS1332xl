@@ -65,6 +65,8 @@ a1 = 3 => 2 blues, blue-top/black-bottom, black-top/blue-bottom
 Recursive cases: If there is a 2xn board, need to focus on how last 2 columns filled since next biggest subproblem is 2 (n-2) ie: a0 and a1 already known.
 
 
+- These are very challenging.
 
 
 == 3. Comprehension == 
+
