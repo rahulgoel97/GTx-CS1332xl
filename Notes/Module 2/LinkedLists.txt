@@ -1,0 +1,26 @@
+##########################
+
+Linked Lists
+
+############################
+
+1. Intro
+2. SLL
+
+=== 1. Intro ===
+- Singly linked lists
+- Doubly linked lists
+- Circularly linked lists
+- Recursion and Iteration discussed.
+
+=== 2. Singly Linked Lists / SLLs ===
+
+- Alternatives to Arrays and fix drawbacks
+- Data stored in nodes placed anywhere in memory
+- Linked with pointers
+- SLL - single pointer
+- No need to resize
+- Every has a head and tail - if head=null, empty list
+
+- Node is private static within SinglyLinkedList - keep it out of control from outside
+- Video on adding and removing.

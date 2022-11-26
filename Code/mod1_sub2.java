@@ -117,8 +117,8 @@ public class ArrayList<T> {
         // return the new array
         if(size <= INITIAL_CAPACITY){
             
-            // Code for addToBack - add data to index size-1. 
-            backingArray[size-1]= data;  
+            // Code for addToBack - add data to index size. 
+            backingArray[size]= data;  
             size = size+1;
         }
         else {
@@ -157,6 +157,10 @@ public class ArrayList<T> {
             backingArray[i]=backingArray[i+1];
         }
         
+        // Make removal at the end 
+        
+        backingArray[size()]=null;
+        
         // Update size
         size = size - 1;   
         
@@ -183,7 +187,7 @@ public class ArrayList<T> {
         
           // ===== Algorithm to remove from the back ======
         // Get array list size
-        int indexToRemove = size;
+        int indexToRemove = size-1;
         
         // Remove the element at this index
         backingArray[indexToRemove]=null;
