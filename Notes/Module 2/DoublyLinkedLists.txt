@@ -1,0 +1,30 @@
+##########################
+
+Doubly Linked Lists
+
+############################
+
+1. DLLs
+2. CLLS
+
+=== 1. DLLs ===
+- Singly-Linked lists with addition of a previous reference
+- Efficient remove from back
+
+- AddToFront
+-> create new node with data
+-> Connect new node to the linked list
+-> Set current head's previous pointer to the new node
+-> Have head point to new node
+
+=== 2. CLLs ===
+-
+- They are DLLs where the head and tail nodes connect to each other, rather than to null references
+- Last node's next points to the head
+- addToFront is O(n) process
+-> for O(1) process, add a node as second node and then copy data over, then lastly replace the data in the first node is the "new" data
+
+- Examples:
+-- Web browser - singly linked lists
+-- music app / caches - double linked lists
+-- Music playlists starting over again - CLLs
