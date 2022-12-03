@@ -1,0 +1,49 @@
+[Executed at: Mon Nov 28 17:18:43 PST 2022]
+
+Not bad at all!!! :)
+
+============================================================
+SinglyLinkedList.java successfully compiled.
+============================================================
+Tests Passed: 10 / 17
+
+
+-------- addToBack: next not set correctly?? -----------------------------------------------
+[Test Failure: addToBack] [-0.59] : This addToBack test was inconclusive due to: java.lang.NullPointerException
+Here is the stack trace to help identify the error in your code:
+	at SinglyLinkedList.addToBack, line number: 74 
+
+[Test Failure: addToBack] [-0.59] : Tail is not pointing to the correct node.
+	Expected : node containing 1a
+	Actual : node containing 0a
+	List structure (for reference) : 0a -> 1a 
+
+[Test Failure: addToBack] [-0.59] : Tail is not pointing to the correct node.
+	Expected : node containing 4a
+	Actual : node containing 3a
+	List structure (for reference) : 0a -> 1a -> 2a -> 3a -> 4a 
+
+
+------------- RemoveFromFront: Not actually removed in edge case of one? ------------------
+[Test Failure: removeFromFront] [-0.59] : Tail is not pointing to the correct node.
+		Expected : null
+	Actual : node containing 0a
+	List structure (for reference) : An empty Singly-Linked List 
+--------------------------------------------------------------------------------------------
+
+
+------------- RemoveFromBack: set last one to null/fix tail issues -----------------------
+[Test Failure: removeFromBack] [-0.59] : Unexpected content after removing once from the back.
+	Expected : An empty Singly-Linked List
+	Actual : 0a 
+
+[Test Failure: removeFromBack] [-0.59] : Unexpected content after removing once from the back.
+	Expected : 0a -> 1a -> 2a -> 3a -> 4a -> 5a
+	Actual :   0a -> 1a -> 2a -> 3a -> 4a -> 5a -> 6a 
+-----------------------------------------------------------------------------------------------
+
+[Test Failure: validSize] [-0.59] : Size variable could not be validated for the following method(s) due to early test failure(s): addToBack. 
+
+
+Score: 5.88 / 10.0
+============================================================

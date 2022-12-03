@@ -1,0 +1,32 @@
+[Executed at: Fri Dec 2 14:43:31 PST 2022]
+
+============================================================
+SinglyLinkedList.java successfully compiled.
+============================================================
+Tests Passed: 11 / 17
+
+[Test Failure: addToBack] [-0.59] : This addToBack test was inconclusive due to: java.lang.NullPointerException
+Here is the stack trace to help identify the error in your code:
+	at SinglyLinkedList.addToBack, line number: 75 
+
+[Test Failure: removeFromFront] [-0.59] : This removeFromFront test was inconclusive due to: java.lang.NullPointerException
+Here is the stack trace to help identify the error in your code:
+	at SinglyLinkedList.removeFromFront, line number: 108 
+
+[Test Failure: removeFromBack] [-0.59] : This removeFromBack test was inconclusive due to: java.lang.NullPointerException
+Here is the stack trace to help identify the error in your code:
+	at SinglyLinkedList.removeFromBack, line number: 142 
+
+------------------- Set tail as "tempNode" ----------------------------------
+[Test Failure: removeFromBack] [-0.59] : Tail is not pointing to the correct node.
+		Expected : node containing 5a
+	Actual : node containing 6a
+	List structure (for reference) : 0a -> 1a -> 2a -> 3a -> 4a -> 5a 
+
+[Test Failure: validSize] [-0.59] : Size variable could not be validated for the following method(s) due to early test failure(s): removeFromBack, removeFromFront, addToBack. 
+
+[Test Failure: validData] [-0.59] : Returned data could not be validated for the following method(s) due to early test failure(s): removeFromFront, removeFromBack. 
+
+
+Score: 6.47 / 10.0
+============================================================

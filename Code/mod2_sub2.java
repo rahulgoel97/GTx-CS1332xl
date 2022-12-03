@@ -63,6 +63,7 @@ public class SinglyLinkedList<T> {
         if(data==null){
             throw new IllegalArgumentException("Cannot be null");
         }
+
      
         // Create a new Noded for the SLL, set head as null.
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<T>(data, null);
@@ -72,11 +73,12 @@ public class SinglyLinkedList<T> {
         
         // Set the next node at the tail to be the new node.
         tail.setNext(newNode);
+
+        tail = newNode; 
         
         // If this is the only node, also set head to this tail
         if(size==1){
             head = tail;
-        
         }
         
         
@@ -96,6 +98,10 @@ public class SinglyLinkedList<T> {
         // Throw exception if null
         if(size==0){
             throw new NoSuchElementException();
+        }
+        else if(size==1){
+            tail = null;
+            head = null;
         }
         
         // Get the data to be returned from the head
@@ -127,33 +133,30 @@ public class SinglyLinkedList<T> {
         if(size==0){
             throw new NoSuchElementException();
         }
-        
-        
-        
+        else if(size==1){
+            head=null;
+            tail=null;
+        }
+          
         // Get the data to be removed
-        T removedData = tail.getData();
-        
-      
+        T removedData = tail.getData();     
         
         // Need to understand the second last node, and set it's next to null
         // Recurse till next is equal to tail, and then execute the code
         
         SinglyLinkedListNode<T> tempNode = head;
         
-        while(tempNode.getNext() != null){
+        while(tempNode.getNext().getNext() != null){
             tempNode = tempNode.getNext();
         }
         
         tempNode.setNext(null);
+
         
         // Decrement size
         size = size - 1;
         
-        return removedData;
-        
-        
-        
-        
+        return removedData;        
     }
 
     /**

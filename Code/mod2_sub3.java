@@ -63,23 +63,25 @@ public class SinglyLinkedList<T> {
         if(data==null){
             throw new IllegalArgumentException("Cannot be null");
         }
-     
+        else if(size==0){
+
+        // Create a new Noded for the SLL, set head as null.
+        SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<T>(data, null);
+        head = newNode;
+        tail = newNode;
+        size = size+1;
+        }
+        else{  
         // Create a new Noded for the SLL, set head as null.
         SinglyLinkedListNode<T> newNode = new SinglyLinkedListNode<T>(data, null);
         
-        // Increment size
-        size = size + 1;
-        
         // Set the next node at the tail to be the new node.
         tail.setNext(newNode);
-        
-        // If this is the only node, also set head to this tail
-        if(size==1){
-            head = tail;
-        
-        }
-        
-        
+        tail = newNode;
+        // Increment size
+        size = size + 1;
+
+        }      
     }
 
     /**
@@ -97,7 +99,14 @@ public class SinglyLinkedList<T> {
         if(size==0){
             throw new NoSuchElementException();
         }
-        
+        else if(size==1){
+            T returnData = head.getData();
+            tail = null;
+            head = null;
+            return returnData;
+        }
+        else
+        {
         // Get the data to be returned from the head
         T returnData = head.getData();
         
@@ -110,6 +119,7 @@ public class SinglyLinkedList<T> {
        
         // Return the original T removed.
         return returnData;
+        }   
         
     }
 
@@ -127,33 +137,37 @@ public class SinglyLinkedList<T> {
         if(size==0){
             throw new NoSuchElementException();
         }
-        
-        
-        
+        else if(size==1){
+            T returnData = head.getData();
+            head=null;
+            tail=null;
+            return returnData;
+        }
+        else
+        {
+          
         // Get the data to be removed
-        T removedData = tail.getData();
-        
-      
+        T removedData = tail.getData();     
         
         // Need to understand the second last node, and set it's next to null
         // Recurse till next is equal to tail, and then execute the code
         
         SinglyLinkedListNode<T> tempNode = head;
         
-        while(tempNode.getNext() != null){
+        while(tempNode.getNext().getNext() != null){
             tempNode = tempNode.getNext();
         }
         
         tempNode.setNext(null);
-        
+
+        // Set tail to the tempNode
+        tail = tempNode; 
+
         // Decrement size
         size = size - 1;
         
-        return removedData;
-        
-        
-        
-        
+        return removedData; 
+        }       
     }
 
     /**

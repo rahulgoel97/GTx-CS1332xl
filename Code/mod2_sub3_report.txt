@@ -1,0 +1,18 @@
+[Executed at: Fri Dec 2 15:14:59 PST 2022]
+
+============================================================
+SinglyLinkedList.java successfully compiled.
+============================================================
+Tests Passed: 14 / 17
+
+[Test Failure: addToBack] [-0.59] : This addToBack test was inconclusive due to: java.lang.NullPointerException
+Here is the stack trace to help identify the error in your code:
+	at SinglyLinkedList.addToBack, line number: 74 
+
+[Test Failure: validSize] [-0.59] : Size variable did not update correctly when testing the following method(s): removeFromBack, removeFromFront. Size variable could not be validated for the following method(s) due to early test failure(s): addToBack. 
+
+[Test Failure: validData] [-0.59] : Returned data was different from the data in the Singly-Linked List when testing the following method(s): removeFromFront, removeFromBack.  
+
+
+Score: 8.24 / 10.0
+============================================================
