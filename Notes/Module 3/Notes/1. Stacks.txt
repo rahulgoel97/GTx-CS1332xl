@@ -1,0 +1,49 @@
+##########################
+
+Stacks and Queues
+
+############################
+
+1. Intro
+2. StackADT
+3. SLL-backed Stack
+4. Queues
+5. Priority Queues
+
+--- 1. Intro ---
+- ADT (Abstract Data types)
+- Stacks, queues, dequeues, priority queues
+
+--- 2. StackADT ---
+- ArrayStack and LinkedStack
+-> quite fundamental for CS!
+-> Linear ADT - finite, immediate predecessor and successor
+-> It's a can-o-tater chips...
+- Last-in and first out / LIFO
+- push, pop, peek, isEmpty methods.
+
+- Awesome notes on how methods and recursive stuff works!
+- makes sense that methods would use stacks, since you need to pause, complete a bunch of instructions, and then return the computed value back. ie: LIFO.
+
+---3. Singly Linked List backed Stack ---
+- Head pointer only.
+- When push() invoked, addToBack()
+- When pop() invoked, removeFromBack()
+- To clear, just set head to null and ignore rest.
+
+--- 4. Queues ---
+- FIFO version of the stack :) - way more appreciative of getting there on time.
+
+- enqueue - weird! these wrap around..
+- dequeue - same for this..
+- pop
+- top
+- isempty, clear
+
+- Insane note on processors - "As it turns out, a significant portion of a processor's job is trying to "predict" what will happen next in code execution. For example, when your code has an if statement, it will try to predict which branch of the code is more likely to happen so that it can work on the task ahead of time. In the case of traversing through a list, processors have something called spatial locality" o:
+
+- Due to spatial locality, ArrayList can be better.
+- Big O ain't perfect, like nothin' in life.
+
+--- 5. Priority Queues ----
+
