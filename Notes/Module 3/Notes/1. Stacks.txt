@@ -9,6 +9,7 @@ Stacks and Queues
 3. SLL-backed Stack
 4. Queues
 5. Priority Queues
+6. Deques
 
 --- 1. Intro ---
 - ADT (Abstract Data types)
@@ -47,3 +48,11 @@ Stacks and Queues
 
 --- 5. Priority Queues ----
 
+- Element with highest priority is returned
+- Used to get minimum and maximum values in a dataset
+- Solution for prioritization = heaps.
+
+--- 6. Deques ---
+- double ended queue - not LIFO/FIFO behavior
+- Operations: addFirst, addLast, removeFirst, removeLast
+- Note on viewing "%" operator as number of classes...

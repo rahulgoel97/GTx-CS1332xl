@@ -1,0 +1,32 @@
+[Executed at: Thu Dec 15 16:48:17 PST 2022]
+
+============================================================
+ArrayQueue.java successfully compiled.
+============================================================
+Tests Passed: 16 / 21
+
+---- Below is only applied to last element when resize is triggered. Therefore, there is an error in the resize function.
+Observation is instead of <=size, I wrote <size, skipping last index. Oops :)
+
+Let's fix it and get a 10 on 10...
+
+------
+[Test Failure: enqueue] [-0.48] : Unexpected content after enqueueing one element and triggering first resize, with front at index 0.
+	Expected : [0a, 1a, 2a, 3a, 4a, 5a, 6a, 7a, 8a, 9a, null, null, null, null, null, null, null, null]
+	Actual :   [0a, 1a, 2a, 3a, 4a, 5a, 6a, 7a, 8a, null, null, null, null, null, null, null, null, null] 
+
+[Test Failure: enqueue] [-0.48] : Unexpected content after enqueueing one element and triggering second resize, with front at index 0.
+	Expected : [0a, 1a, 2a, 3a, 4a, 5a, 6a, 7a, 8a, 9a, 10a, 11a, 12a, 13a, 14a, 15a, 16a, 17a, 18a, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+	Actual :   [0a, 1a, 2a, 3a, 4a, 5a, 6a, 7a, 8a, 9a, 10a, 11a, 12a, 13a, 14a, 15a, 16a, 17a, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null] 
+
+[Test Failure: enqueue] [-0.48] : Unexpected content after enqueueing one element and triggering first resize, with front at index 3.
+	Expected : [0a, 1a, 2a, 3a, 4a, 5a, 6a, 7a, 8a, 9a, null, null, null, null, null, null, null, null]
+	Actual :   [6a, 7a, 8a, 0a, 1a, 2a, 3a, 4a, 5a, null, null, null, null, null, null, null, null, null] 
+
+[Test Failure: validSize] [-0.48] : Size variable did not update correctly when testing the following method(s): enqueue.  
+
+[Test Failure: validFront] [-0.48] : Front variable did not update correctly when testing the following method(s): enqueue.  
+
+
+Score: 7.62 / 10.0
+============================================================

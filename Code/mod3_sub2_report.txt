@@ -1,0 +1,32 @@
+[Executed at: Thu Dec 15 17:18:45 PST 2022]
+
+============================================================
+ArrayQueue.java successfully compiled.
+============================================================
+Tests Passed: 16 / 21
+
+---- It was not the size op - maybe the back recaclualtion within enqueue ...----
+
+
+[Test Failure: enqueue] [-0.48] : This enqueue test was inconclusive due to: java.lang.ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 9
+Here is the stack trace to help identify the error in your code:
+	at ArrayQueue.resizeArray, line number: 44
+	at ArrayQueue.enqueue, line number: 73 
+
+[Test Failure: enqueue] [-0.48] : This enqueue test was inconclusive due to: java.lang.ArrayIndexOutOfBoundsException: Index 18 out of bounds for length 18
+Here is the stack trace to help identify the error in your code:
+	at ArrayQueue.resizeArray, line number: 44
+	at ArrayQueue.enqueue, line number: 73 
+
+[Test Failure: enqueue] [-0.48] : This enqueue test was inconclusive due to: java.lang.ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 9
+Here is the stack trace to help identify the error in your code:
+	at ArrayQueue.resizeArray, line number: 44
+	at ArrayQueue.enqueue, line number: 73 
+
+[Test Failure: validSize] [-0.48] : Size variable could not be validated for the following method(s) due to early test failure(s): enqueue. 
+
+[Test Failure: validFront] [-0.48] : Front variable could not be validated for the following method(s) due to early test failure(s): enqueue. 
+
+
+Score: 7.62 / 10.0
+============================================================
